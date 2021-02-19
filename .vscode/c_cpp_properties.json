@@ -21,7 +21,10 @@
     {
       "name": "Linux",
       "includePath": ["${default}"],
-      "defines": ["XDG_ROOT"],
+      "defines": [
+        "XDG_ROOT",
+        "RW_OPENGL"
+      ],
       "compilerPath": "/usr/bin/gcc",
       "compilerArgs": ["-ggdb"],
       "cStandard": "gnu11",

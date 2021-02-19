@@ -102,7 +102,7 @@
         "config=debug_linux-arm-librw_gl3_glfw-oal",
         "verbose=1",
         "CXXFLAGS=-I${workspaceFolder}/tp/glfw/include",
-        "LDFLAGS=-L${workspaceFolder}/tp/glfw/src"
+        "LDFLAGS=\"-L${workspaceFolder}/tp/glfw/build/src -ldl -lwayland-client \""
       ],
       "command": "sfdk",
       // "dependsOn": "Premake (Linux)",
@@ -113,6 +113,24 @@
       "label": "Compile (Debug Sailfish armv7hl)",
       "options": {
         "cwd": "${workspaceFolder}/build"
+      },
+      "problemMatcher": "$gcc",
+      "type": "shell"
+    },
+    {
+      "command": "sfdk",
+      "args": [
+        "engine", "exec", "sb2", "-t", "SailfishOS-3.4.0.24-armv7hl",
+        "/bin/bash", "build_glfw.sh"
+      ],
+      // "dependsOn": "Premake (Linux)",
+      "group": {
+        "isDefault": true,
+        "kind": "build"
+      },
+      "label": "CMake GLFW static (Sailfish armv7hl)",
+      "options": {
+        "cwd": "${workspaceFolder}/tp/"
       },
       "problemMatcher": "$gcc",
       "type": "shell"
