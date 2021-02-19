@@ -14,3 +14,10 @@
 	path = vendor/librw
 	url = https://github.com/aap/librw.git
 	branch = master
+[submodule "premake_src"]
+	path = premake_src
+	url = git@github.com:premake/premake-core.git
+[submodule "tp/glfw"]
+	path = tp/glfw
+	url = git@github.com:glfw/glfw.git
+	branch = 3.3-stable
