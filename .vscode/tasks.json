@@ -1,4 +1,9 @@
 {
+  "options": {
+    "env": {
+      "device" : "nemo@192.168.2.19" //default SFOS device debug IP (USB tethering)
+    }
+  },
   "tasks": [
     {
       "args": ["--with-librw", "gmake2"],
@@ -84,6 +89,28 @@
         "kind": "build"
       },
       "label": "Compile (Release macOS x64)",
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
+      "problemMatcher": "$gcc",
+      "type": "shell"
+    },
+    {
+      "args": [
+        "engine", "exec", "sb2", "-t", "SailfishOS-3.4.0.24-armv7hl",
+        "make", "-j4",
+        "config=debug_linux-arm-librw_gl3_glfw-oal",
+        "verbose=1",
+        "CXXFLAGS=-I${workspaceFolder}/tp/glfw/include",
+        "LDFLAGS=-L${workspaceFolder}/tp/glfw/src"
+      ],
+      "command": "sfdk",
+      // "dependsOn": "Premake (Linux)",
+      "group": {
+        "isDefault": true,
+        "kind": "build"
+      },
+      "label": "Compile (Debug Sailfish armv7hl)",
       "options": {
         "cwd": "${workspaceFolder}/build"
       },
